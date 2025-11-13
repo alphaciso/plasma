@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+.next
+out
+dist
+build
+
+# Generated
+.source
+
+# Environment
+.env
+.env*.local
+
+# Git
+.git
+.gitignore
+.github
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+DEPLOYMENT.md
+CLAUDE.md
+CHANGELOG.md
+
+# Test
+coverage
+.nyc_output
+
+# Misc
+*.log
