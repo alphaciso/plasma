@@ -1,5 +1,5 @@
 # Multi-stage Dockerfile for Plasma Next.js Template
-# Optimized for static export deployment
+# Optimized for static export deployment with Coolify
 
 # Build stage
 FROM node:18-alpine AS builder
@@ -7,15 +7,16 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Install pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm@8
 
-# Copy package files
-COPY package.json pnpm-lock.yaml* ./
+# Copy package files first
+COPY package.json ./
+COPY pnpm-lock.yaml ./
 
 # Install dependencies
-RUN pnpm install --no-frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
-# Copy source code
+# Copy all source code
 COPY . .
 
 # Build application (generates static export in 'out' directory)

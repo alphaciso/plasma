@@ -11,7 +11,7 @@ out
 dist
 build
 
-# Generated
+# Generated (will be regenerated during build)
 .source
 
 # Environment
