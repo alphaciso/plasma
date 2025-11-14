@@ -13,10 +13,15 @@ RUN npm install -g pnpm@8
 COPY package.json ./
 COPY pnpm-lock.yaml ./
 
-# Install dependencies
+# Copy configuration files needed by postinstall script
+COPY source.config.ts ./
+COPY tsconfig.json ./
+COPY content ./content
+
+# Install dependencies (postinstall will run fumadocs-mdx)
 RUN pnpm install --no-frozen-lockfile
 
-# Copy all source code
+# Copy remaining source code
 COPY . .
 
 # Build application (generates static export in 'out' directory)
