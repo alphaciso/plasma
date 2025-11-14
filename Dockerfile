@@ -19,7 +19,6 @@ COPY tsconfig.json ./
 COPY content ./content
 
 # Install dependencies (postinstall will run fumadocs-mdx)
-RUN pnpm s
 RUN pnpm install --no-frozen-lockfile
 
 # Copy remaining source code
