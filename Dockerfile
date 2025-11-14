@@ -20,7 +20,7 @@ COPY content ./content
 
 # Install dependencies (postinstall will run fumadocs-mdx)
 RUN pnpm s
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # Copy remaining source code
 COPY . .
