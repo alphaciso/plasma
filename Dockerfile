@@ -7,7 +7,7 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Install pnpm
-RUN npm install -g pnpm@8
+RUN npm install -g pnpm@latest
 
 # Copy package files first
 COPY package.json ./
@@ -19,7 +19,7 @@ COPY tsconfig.json ./
 COPY content ./content
 
 # Install dependencies (postinstall will run fumadocs-mdx)
-RUN pnpm self-update
+RUN pnpm s
 RUN pnpm install --frozen-lockfile
 
 # Copy remaining source code
